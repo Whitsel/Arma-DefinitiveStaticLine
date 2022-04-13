@@ -12,4 +12,6 @@ class CfgStaticLine {
 	enableInjuredChemlightMinor = 1;
 	enableInjuredChemlightMajor = 1;
 	enableDamageOnEquipmentRideIn = 1;
+
+	enableAutomaticJumpInterupt = 1;
 };
