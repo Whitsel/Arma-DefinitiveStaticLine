@@ -35,6 +35,7 @@
 #define ARR_8(ARG1,ARG2,ARG3,ARG4,ARG5,ARG6,ARG7,ARG8) ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7, ARG8
 
 #define GVAR(var1) DOUBLES(PREFIX,var1)
+#define CGVAR(var1) TRIPLES(PREFIX,COMPONENT,var1)
 #define EGVAR(var1,var2) TRIPLES(PREFIX,var1,var2)
 #define QGVAR(var1) QUOTE(GVAR(var1))
 #define QEGVAR(var1,var2) QUOTE(EGVAR(var1,var2))
@@ -68,4 +69,3 @@
 #define GETGVAR(var1,var2) GETMVAR(GVAR(var1),var2)
 #define GETEGVAR(var1,var2,var3) GETMVAR(EGVAR(var1,var2),var3)
 
-#define CGVAR(var1) TRIPLES(PREFIX,COMPONENT,var1)
