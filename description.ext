@@ -1,0 +1,9 @@
+
+/*		  SYSTEMS		   */
+
+	#include "tScripts\StaticLine\CfgStaticLine.hpp"
+
+	class CfgFunctions
+	{
+		#include "tScripts\CfgFunctions.hpp"
+	};
