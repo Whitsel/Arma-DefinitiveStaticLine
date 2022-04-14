@@ -44,7 +44,7 @@ if ("rhs_main" in activatedAddons) then {
 	CGVAR(parachuteClass) = "rhs_d6_Parachute";
 	diag_log "tScripts StaticLine: RHS AFRF: D6 PArachute Bag selected";
 } else {
-	if ("rhs_main" in activatedAddons) then {
+	if ("rhsusf_main" in activatedAddons) then {
 		CGVAR(parachuteClass) = "rhsusf_eject_Parachute";
 		diag_log "tScripts StaticLine: RHS USAF detected: Static Parachute Bag selected";
 	} else {
