@@ -7,7 +7,7 @@
  * 0: unit <OBJECT>
  *
  * Return Value:
- * True
+ * Nothing
  *
  * Example:
  * player call tScripts_fnc_makeJM;
@@ -133,5 +133,3 @@ _unit addAction [ //Hide Conditions
 	(_this getVariable ['tScripts_StaticLine_isJumpmaster', false])",
 	0
 ];
-
-true;

@@ -7,7 +7,7 @@
  * None
  *
  * Return Value:
- * None
+ * Nothing
  *
  * Example:
  * player call tScripts_fnc_jumpConditions;

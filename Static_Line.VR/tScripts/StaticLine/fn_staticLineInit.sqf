@@ -6,7 +6,7 @@
  * 0: unit <OBJECT>
  *
  * Return Value:
- * true
+ * Nothing
  *
  * Example:
  * call tScripts_fnc_staticLineInit;
