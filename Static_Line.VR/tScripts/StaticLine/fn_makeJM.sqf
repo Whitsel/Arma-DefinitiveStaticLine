@@ -20,17 +20,15 @@ params ["_unit"];
 
 SETVAR(_unit,CGVAR(isJumpmaster),true);
 
-_unit addAction [
+_unit addAction [ //Get Ready
 	colorHexUnknown + iconEdenSortDown + "</t>" + "Get Ready",
 	{
-		params ["_target", "_caller", "_actionId", "_arguments"]; //Need to add hint to players in cargo
+		params ["_target", "_caller", "_actionId", "_arguments"];
 
-		SETVAR(vehicle _caller,CGVAR(getReady),true);
+		SETVAR(vehicle _caller,CGVAR(getReadyProgress),true);
 
-		_vehicle = vehicle _caller;
-		_vehicle animateSource ["jumplight",0]; //Need to check light names for planes
-		_vehicle animateDoor ["door_2_1", 1, false]; //Need to check door names for different planes
-		_vehicle animateDoor ["door_2_2", 1, false];
+		_caller call FUNC(getReady);
+
 	},
 	nil,
 	1.5,
@@ -38,6 +36,7 @@ _unit addAction [
 	true,
 	"",
 	"!((vehicle _this) getVariable ['tScripts_StaticLine_getReady', false]) &&
+	!((vehicle _this) getVariable ['tScripts_StaticLine_getReadyProgress', false]) &&
 	(_this getVariable ['tScripts_StaticLine_isJumpmaster', false])",
 	0
 ];
