@@ -65,8 +65,8 @@ _unit addAction [ //Get Ready
 
 	},
 	[],										//Arguments passed to the scripts
-	count(fullCrew [vehicle _unit, "cargo", false])/1.25,										//Execution time in seconds
-	2,									//Priority
+	30,										//Execution time in seconds
+	2,										//Priority
 	false,									//Remove on completion
 	false									//Show when uncon
 ] call BIS_fnc_holdActionAdd;
