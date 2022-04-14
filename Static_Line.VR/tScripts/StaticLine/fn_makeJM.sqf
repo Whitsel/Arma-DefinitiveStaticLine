@@ -22,7 +22,7 @@ params ["_unit"];
 SETVAR(_unit,CGVAR(isJumpmaster),true);
 
 _unit addAction [ //Get Ready
-	colorHexUnknown + iconEdenSortDown + "</t>" + "Get Ready",
+	colorHexUnknown + iconEdenSortDown + "</t> " + "Get Ready",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
 
@@ -32,7 +32,7 @@ _unit addAction [ //Get Ready
 
 	},
 	nil,
-	1.5,
+	2,
 	false,
 	true,
 	"",
@@ -44,7 +44,7 @@ _unit addAction [ //Get Ready
 
 [ //Green Light
 	_unit,
-	"  " + colorHexGuer + iconLight + "</t> " + "Green Light",
+	colorHexGuer + iconLight + "</t> " + "Green Light",
 	"\a3\ui_f\data\igui\cfg\actions\beacons_on_ca.paa",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 	"((vehicle _this) getVariable ['tScripts_StaticLine_getReady', false]) &&
@@ -66,13 +66,13 @@ _unit addAction [ //Get Ready
 	},
 	[],										//Arguments passed to the scripts
 	count(fullCrew [vehicle _unit, "cargo", false])/1.25,										//Execution time in seconds
-	1.5,									//Priority
+	2,									//Priority
 	false,									//Remove on completion
 	false									//Show when uncon
 ] call BIS_fnc_holdActionAdd;
 
 _unit addAction [ //Abort Jump
-	"  " + colorHexEast + iconLight + "</t> " + "Abort Jump",
+	colorHexEast + iconLight + "</t> " + "Abort Jump",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
 
@@ -85,7 +85,7 @@ _unit addAction [ //Abort Jump
 		_vehicle animateDoor ["door_2_2", 0, false];
 	},
 	nil,
-	1.5,
+	2,
 	false,
 	true,
 	"",
@@ -105,7 +105,7 @@ _unit addAction [ //Check Conditions
 
 	},
 	nil,
-	1.5,
+	2,
 	false,
 	true,
 	"",
@@ -125,7 +125,7 @@ _unit addAction [ //Hide Conditions
 		hintSilent "";
 	},
 	nil,
-	1.5,
+	2,
 	false,
 	true,
 	"",
