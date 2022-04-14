@@ -45,6 +45,11 @@ sleep 1;
 
 		moveOut _jumper;
 
+		_jumper spawn {
+			params ["_jumper"];
+			_jumper call FUNC(jumpAI);
+		};
+
 		sleep (_spacing / (speed _vehicle /3.6));
 	} forEach _passengers;
 };
