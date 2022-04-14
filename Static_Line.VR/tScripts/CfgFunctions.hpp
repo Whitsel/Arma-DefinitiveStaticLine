@@ -3,7 +3,7 @@ class tScripts {
 
 	class staticLineJump {
 		file = "tScripts\StaticLine";
-		class staticLineInit {};
+		class staticLineInit { preinit = 1 };
 		class makeJM {};
 		class getReady {};
 		class greenLight {};
