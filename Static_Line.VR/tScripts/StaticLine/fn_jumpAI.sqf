@@ -58,6 +58,6 @@ _physXObj setVectorDirAndUp [
    [[sin _r, -sin _p, cos _r * cos _p], -_y] call BIS_fnc_rotateVector2D
 ];
 
-sleep 2;
+sleep 1;
 
-_hookPileTapeLoweringLine = ropeCreate [_parachute, [0,0,0], _physXObj, [0,0,0], 10];
+_hookPileTapeLoweringLine = ropeCreate [_parachute, [0,0,0], _physXObj, [0,0,0], 5];
