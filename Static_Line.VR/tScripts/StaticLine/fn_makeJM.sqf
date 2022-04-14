@@ -1,6 +1,7 @@
+
 /*
  * Author: [7Cav] Whitsel
- * Assigs the unit as a jumpmaster and give them actions to control the static line jump
+ * Assigns the unit as a jumpmaster and gives them actions to control the static line jump
  *
  * Arguments:
  * 0: unit <OBJECT>
@@ -77,29 +78,9 @@ _unit addAction [ //Abort Jump
 
 		SETVAR(vehicle _caller,CGVAR(getReady),false);
 		private _vehicle = vehicle _caller;
+
 		_vehicle animateSource ["jumplight",0];
 		sleep 1;
-		_vehicle animateDoor ["door_2_1", 0, false];
-		_vehicle animateDoor ["door_2_2", 0, false];
-	},
-	nil,
-	1.5,
-	false,
-	true,
-	"",
-	"((vehicle _this) getVariable ['tScripts_StaticLine_getReady', false]) &&
-	(_this getVariable ['tScripts_StaticLine_isJumpmaster', false])",
-	0
-];
-
-_unit addAction [
-	"  " + colorHexEast + iconLight + "</t> " + "Red Light",
-	{
-		params ["_target", "_caller", "_actionId", "_arguments"];
-
-		private _vehicle = vehicle _caller;
-		_vehicle animateSource ["jumplight",0];
-		sleep 3;
 		_vehicle animateDoor ["door_2_1", 0, false];
 		_vehicle animateDoor ["door_2_2", 0, false];
 	},
