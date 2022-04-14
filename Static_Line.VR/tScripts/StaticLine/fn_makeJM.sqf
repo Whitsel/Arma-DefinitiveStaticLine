@@ -42,34 +42,36 @@ _unit addAction [
 	0
 ];
 
-_unit addAction [ //Need to make hold action
+[ //Green Light
+	_unit,
 	"  " + colorHexGuer + iconLight + "</t> " + "Green Light",
-	{
-		params ["_target", "_caller", "_actionId", "_arguments"];
-
-		private _vehicle = vehicle _caller;
-		_vehicle animateSource ["jumplight",1];
-
-		_passengers = fullCrew [_plane, "cargo", false];
-
-		for "_i" from (count _passengers -1) to 0 step -1 do {
-			if (player == (_passengers#_i#0)) then {
-				_passengers append [_passengers#_i];
-				_passengers deleteAt _i;
-			}
-		};
-	},
-	nil,
-	1.5,
-	false,
-	true,
-	"",
+	"\a3\ui_f\data\igui\cfg\actions\beacons_on_ca.paa",
+	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 	"((vehicle _this) getVariable ['tScripts_StaticLine_getReady', false]) &&
 	(_this getVariable ['tScripts_StaticLine_isJumpmaster', false])",
-	0
-];
+	"true",									//Condition to progress
+	{										//Code when started
+		params ["_target", "_caller", "_actionId", "_arguments"];
 
-_unit addAction [
+		_caller call FUNC(greenLight);
+
+	},
+	{},										//Code executed every tick
+	{},										//Code executed on completion
+	{										//Code executed on interupt
+		params ["_target", "_caller", "_actionId", "_arguments"];
+
+		_caller call FUNC(redLight);
+
+	},
+	[],										//Arguments passed to the scripts
+	count(fullCrew [vehicle _unit, "cargo", false])/1.25,										//Execution time in seconds
+	1.5,									//Priority
+	false,									//Remove on completion
+	false									//Show when uncon
+] call BIS_fnc_holdActionAdd;
+
+_unit addAction [ //Abort Jump
 	"  " + colorHexEast + iconLight + "</t> " + "Abort Jump",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
