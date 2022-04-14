@@ -4,13 +4,13 @@
  * Displays looped hint with aircraft diagnostics including speed, altitude, pitch, bank, and wind speed
  *
  * Arguments:
- * 0: unit <OBJECT>
+ * None
  *
  * Return Value:
- * True
+ * None
  *
  * Example:
- * _caller call tScripts_fnc_jumpConditions;
+ * player call tScripts_fnc_jumpConditions;
  *
  * Public: No
  */
