@@ -47,9 +47,17 @@ sleep 1;
 
 		_jumper spawn {
 			params ["_jumper"];
-			_jumper call FUNC(jumpAI);
+
+			private _playerEquipmentLowering = getNumber (missionConfigFile >> "CfgStaticLine" >> "enablePlayerEquipmentLowering");
+
+			if (isPlayer _jumper && _playerEquipmentLowering == 1) then {
+				_jumper call FUNC(jumpSimulated);
+			} else {
+				_jumper call FUNC(jumpSimple);
+			};
 		};
 
 		sleep (_spacing / (speed _vehicle /3.6));
+
 	} forEach _passengers;
 };
