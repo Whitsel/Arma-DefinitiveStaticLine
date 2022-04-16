@@ -39,7 +39,7 @@ if !(backpack _jumper == "") then {
 
 	private _physXObj = createVehicle ["Land_PenBlack_F", getPos _jumper, [], 0, "NONE"];
 
-	objectParent _backpack attachTo [_physXObj, [-0.1,-0.3,-0.45]];
+	objectParent _backpack attachTo [_physXObj, [-0.1,-0.3,-0.55]];
 	[objectParent _backpack, 0, 180, 0] call FUNC(orientObject);
 
 	_physXObj attachTo [_parachute, [0.05, 0.25, 0]];
