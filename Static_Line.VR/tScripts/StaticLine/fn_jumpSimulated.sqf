@@ -117,4 +117,11 @@ if !(backpack _jumper == "") then {
 		} else {
 			[_jumper, _physXObj, objectParent _backpack] call FUNC(landSimple)
 	};
-};
+} else {
+
+	if (_injuredJumperChemlights == 1) then {
+		waitUntil {sleep 1; isNull _parachute};
+		_jumper call FUNC(chemlightJumper)
+	};
+
+}
