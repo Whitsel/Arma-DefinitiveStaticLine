@@ -88,7 +88,7 @@ onEachFrame {
 	hintSilent composeText [
 		parseText format ["<t size='1.3' color='#660080'>" + iconPerformance + " " + _planeDisplayName + "</t>"],
 		lineBreak,
-		parseText format["<t align='left'>Speed: %2%1</t>kph", _speed, _speedColor], //Adjust colors based on numbers
+		parseText format["<t align='left'>Speed: %2%1</t>kph", _speed, _speedColor],
 		lineBreak,
 		parseText format["<t align='left'>Altitude: %2%1</t>m ATL", _height, _heightColor],
 		lineBreak,
