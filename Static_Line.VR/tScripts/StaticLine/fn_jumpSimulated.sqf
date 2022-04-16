@@ -33,6 +33,7 @@ if !(backpack _jumper == "") then {
 
 	private _backpack = backpackContainer _jumper;
 	private _backpackPicture = (getText (configFile >> "CfgVehicles" >> backpack player >> "picture") trim ["paa", 2]) trim [".",2];
+	private _WeaponPicture = (getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture") trim ["paa", 2]) trim [".",2];
 
 	_jumper addBackpackGlobal "B_AssaultPack_khk"; // Throws current pack on ground in weapon holder
 	removeBackpackGlobal _jumper;
@@ -46,6 +47,8 @@ if !(backpack _jumper == "") then {
 	[_physXObj, 180, -90, 180] call FUNC(orientObject);
 
 	hintSilent composeText[
+		lineBreak,
+		parseText("<img size='4' image='" + _weaponPicture + "'/>"),
 		lineBreak,
 		parseText("<img size='6' image='" + _backpackPicture + "'/>"),
 		lineBreak,
