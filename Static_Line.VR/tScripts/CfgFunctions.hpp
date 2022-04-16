@@ -9,9 +9,12 @@ class tScripts {
 		class greenLight {};
 		class redLight {};
 		class jumpConditions {};
-		class jumpPlayer {};
-		class jumpAI {};
-		class landPlayer {};
-		class landAI {};
+		class jumpSimulated {};
+		class jumpSimple {};
+		class landSimulated {};
+		class landSimple {};
+		class chemlightEquipment {};
+		class chemlightJumper {};
+		class orientObject {};
 	};
 };
