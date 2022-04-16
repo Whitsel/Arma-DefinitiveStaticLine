@@ -32,6 +32,7 @@ _jumper moveInDriver _parachute;
 if !(backpack _jumper == "") then {
 
 	private _backpack = backpackContainer _jumper;
+	private _backpackPicture = (getText (configFile >> "CfgVehicles" >> backpack player >> "picture") trim ["paa", 2]) trim [".",2];
 
 	_jumper addBackpackGlobal "B_AssaultPack_khk"; // Throws current pack on ground in weapon holder
 	removeBackpackGlobal _jumper;
@@ -44,21 +45,18 @@ if !(backpack _jumper == "") then {
 	_physXObj attachTo [_parachute, [0.05, 0.25, 0]];
 	[_physXObj, 180, -90, 180] call FUNC(orientObject);
 
-/*
-	private _backpackPicture = getText (configFile >> "CfgVehicles" >> backpack _jumper >> "picture");
+	hintSilent composeText[
+		lineBreak,
+		parseText("<img size='6' image='" + _backpackPicture + "'/>"),
+		lineBreak,
+		lineBreak,
+		lineBreak,
+		"Press SPACE to lower equipment",
+		lineBreak,
+		lineBreak,
+		"Press CTRL + SHIFT + SPACE to jettison equipment"
+];
 
-	hintSilent composeText [
-		image _backpackPicture,
-		lineBreak,
-		lineBreak,
-		lineBreak,
-		parseText format["<t align='left'>Press Space to pull release handle and lower equipment</t>"],
-		lineBreak,
-		lineBreak,
-		parseText format["<t align='left'>Press CTRL + Shift + Space to pull yellow safety lanyard to jettison equipment</t>"],
-		lineBreak
-	];
- */
 	SETVAR(_jumper,CGVAR(physXObj),_physXObj); //For EH to access out of scope
 	SETVAR(_jumper,CGVAR(parachute),_parachute);
 
