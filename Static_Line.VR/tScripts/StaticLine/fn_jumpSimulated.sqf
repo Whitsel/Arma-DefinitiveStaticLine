@@ -111,10 +111,6 @@ if !(backpack _jumper == "") then {
 
 	waitUntil {sleep 1; isNull _parachute};
 
-	if !(ropes _parachute == []) then {
-		deleteVehicle (ropes _parachute)#0;
-	};
-
 	if (isPlayer _jumper && _playerEquipmentRetrieval == 1) then {
 			[_jumper, _physXObj, objectParent _backpack] call FUNC(landSimulated)
 		} else {
