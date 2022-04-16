@@ -42,6 +42,8 @@ if !(backpack _jumper == "") then {
 
 	objectParent _backpack attachTo [_physXObj, [-0.1,-0.3,-0.55]];
 	[objectParent _backpack, 0, 180, 0] call FUNC(orientObject);
+	//objectParent _primaryWeapon attachTo [_physXObj, [-0.05, 0.05, 0.08]];
+	//[objectParent _primaryWeapon, 0, 180, 0] call FUNC(orientObject);
 
 	_physXObj attachTo [_parachute, [0.05, 0.25, 0]];
 	[_physXObj, 180, -90, 180] call FUNC(orientObject);
