@@ -23,6 +23,13 @@ params ["_jumper"];
 private _parachuteClass = CGVAR(parachuteClass);
 private _playerEquipmentRetrieval = getNumber (missionConfigFile >> "CfgStaticLine" >> "enableplayerEquipmentRetrieval");
 
+private _nvgClass = hmd _jumper;
+private _vestObj = vestContainer _jumper;
+private _vestMaxLoad = maxLoad _vestObj;
+_vestObj setMaxLoad (_vestMaxLoad + 100);
+_jumper unassignItem _nvgClass;
+_vestObj setMaxLoad _vestMaxLoad;
+
 sleep 1.5;
 
 private _parachute = createVehicle [_parachuteClass, (position _Jumper), [], 0, "CAN_COLLIDE"];
@@ -59,8 +66,8 @@ if !(backpack _jumper == "") then {
 	deleteVehicle _hookPileTapeLoweringLine;
 
 	if (isPlayer _jumper && _playerEquipmentRetrieval == 1) then {
-			[_jumper, _physXObj, objectParent _backpack] call FUNC(landSimulated)
+			[_jumper, _physXObj, objectParent _backpack, _nvgClass] call FUNC(landSimulated)
 		} else {
-			[_jumper, _physXObj, objectParent _backpack] call FUNC(landSimple)
+			[_jumper, _physXObj, objectParent _backpack, _nvgClass] call FUNC(landSimple)
 	};
 };

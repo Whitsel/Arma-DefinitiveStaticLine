@@ -19,7 +19,7 @@
 
 #include "script_component.hpp";
 
-params ["_jumper", "_physXObj", "_backpack"];
+params ["_jumper", "_physXObj", "_backpack", "_nvgClass"];
 
 sleep 0.5;
 
@@ -37,6 +37,7 @@ private _injuredJumperChemlights = getNumber (missionConfigFile >> "CfgStaticLin
 if (_loweredEquipmentChemlights == 1) then {_backpack call FUNC(chemlightEquipment)};
 if (_injuredJumperChemlights == 1) then {_jumper call FUNC(chemlightJumper)};
 
-_jumper action ["TakeBag", firstBackpack _backpack];
+_jumper assignItem _nvgClass;
+_jumper action ["TakeBag", firstBackpack _backpack]; //Need to check for uncon state
 
 //Need to retrieve weapon once implimented
