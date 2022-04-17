@@ -24,6 +24,7 @@ onEachFrame {
 	private _height = round((getPos vehicle player)#2);
 	private _pitchBank = vehicle player call BIS_fnc_getPitchBank;
 	private _windStrength =  round(19.4 *sqrt(wind#0^2 + wind#1^2))/10;
+	private _direction = round getDir vehicle player;
 
 	private _speedColor = if (
 		_speed >= 150 && _speed <= 300
@@ -96,7 +97,9 @@ onEachFrame {
 		lineBreak,
 		parseText format["<t align='left'>Bank: %2%1</t>° %3", round(abs(_pitchBank#1)), _bankColor, _bankDirection],
 		lineBreak,
-		parseText format["<t align='left'>Wind: %2%1</t> knots", _windStrength, _windColor]
+		parseText format["<t align='left'>Wind: %2%1</t> knots", _windStrength, _windColor],
+		lineBreak,
+		parseText format["<t align='left'>Heading: %2%1</t>°", _direction, "<t color='#9900ff00'>"]
 	];
 };
 
